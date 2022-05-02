@@ -4,11 +4,17 @@
 }
 
 main {
-  border: 1px solid black;
   margin: auto;
-  align-items: center;
   display: flex;
+  align-items: center;
   justify-content: center;
+}
+
+.container {
   width: 50vw;
   height: 50vh;
+  display: flex;
+  align-items: flex-start;
+  justify-items: flex-start;
+  border: 1px solid black;
 }
