@@ -5,7 +5,7 @@
 # **MVP: Make the mini-game functional.**
 
 - TODO:
-    - [ ]  Create the HTML structure to the project.
+    - [ X ]  Create the HTML structure to the project.
     - [ ]  Style the structure just as planned.
     - [ ]  Create the logic to generate the blocks
     - [ ]  Create the logic to generate the platform the platform.
