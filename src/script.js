@@ -1,17 +1,24 @@
 class BlockBreaker {
-  BLOCKS_LENGTH = 20;
+  #MAX_BLOCK_LENGTH = 24;
+  #MIN_BLOCK_LENGTH = 6;
+
+  platform = document.createElement("div");
+  platformContainer = document.querySelector("#platformContainer");
 
   constructor() {
-    this.createBlocks();
+    this.createBlocks(this.#MIN_BLOCK_LENGTH, this.#MAX_BLOCK_LENGTH);
+    this.createPlatformAction(this.platform, this.platformContainer);
   }
 
-  createBlocks() {
+  createBlocks(minBlockLength, maxBlockLength) {
     const blockContainer = document.querySelector("#blocksContainer");
+    const randomizeBlocks = Math.floor(
+      Math.random() * (maxBlockLength - minBlockLength) + minBlockLength
+    );
 
-    for (let i = 0; i < this.BLOCKS_LENGTH; i++) {
+    for (let i = 0; i < randomizeBlocks; i++) {
       const blocks = document.createElement("div");
       blocks.className = "blocks";
-      blocks.style.display = "block";
       blockContainer.appendChild(blocks);
     }
   }
@@ -20,8 +27,26 @@ class BlockBreaker {
     //TODO: IMPLEMENTATION
   }
 
-  platformAction() {
-    //TODO: IMPLEMENTATION
+  movePlatform() {}
+
+  createPlatformLogic(event) {
+    const isArrowLeft = event.keyCode === 37;
+    const isArrowRight = event.keyCode === 39;
+
+    if (isArrowLeft) {
+      console.log("Left");
+    }
+
+    if (isArrowRight) {
+      console.log("Right");
+    }
+  }
+
+  createPlatformAction(platform, platformContainer) {
+    platform.className = "platform";
+    platformContainer.appendChild(platform);
+
+    return document.body.addEventListener("keyup", this.createPlatformLogic);
   }
 
   breakBlocks() {
